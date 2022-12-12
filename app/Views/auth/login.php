@@ -6,7 +6,7 @@
 
     <h1 class="text-2xl">Login</h1>
 
-    <form action="<?=route_to('login')?>" method="POST" class="border rounded-md border-primary-700 m-3 p-4">
+    <form action="<?=route_to('verifylogin')?>" method="POST" class="border rounded-md border-primary-700 m-3 p-4">
     <?= csrf_field() ?>
 
     <div class="mb-2">

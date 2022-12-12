@@ -37,6 +37,19 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
+$routes->get('login', 'AuthController::login', ['as'=>'login']);
+$routes->post('login', 'AuthController::verifyCredentials', ['as'=>'verifylogin']);
+$routes->get('register', 'AuthController::register', ['as'=>'register']);
+$routes->post('register', 'AuthController::store', ['as'=>'store']);
+
+$routes->get('logout', 'AuthController::logout', ['as'=>'logout']);
+
+$routes->group('', ['filter'=> 'AuthCheck'], function($routes){
+    $routes->get('/dashboard', 'DashboardController::index',['as'=>'dashboard']);
+});
+
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
